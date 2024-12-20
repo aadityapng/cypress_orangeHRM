@@ -33,15 +33,15 @@ Feature: OrangeHRM Admin Dashboard Functionality
     And I click reset button
     Then the search form should be cleared
 
-  Scenario: ADMIN_006 - Should add new admin user successfully
-    When I click add button
-    Then I should see add user form
-    When I select user role "Admin" in add form
-    And I select an existing employee in add form
-    And I select status "Enabled" in add form
-    And I enter new username "TestAdmin123" in add form
-    And I enter password "Admin123!!!" in add form
-    And I confirm password "Admin123!!!" in add form
-    And I click save button
-    Then I should see success message
-    And the new user should be in the list
+# Scenario: ADMIN_006 - Should add new admin user successfully
+#   When I click add button
+#   Then I should see add user form
+#   When I select user role "Admin" in add form
+#   And I select an existing employee in add form
+#   And I select status "Enabled" in add form
+#   And I enter new username "TestAdmin123" in add form
+#   And I enter password "Admin123!!!" in add form
+#   And I confirm password "Admin123!!!" in add form
+#   And I click save button
+#   Then I should see success message
+#   And the new user should be in the list

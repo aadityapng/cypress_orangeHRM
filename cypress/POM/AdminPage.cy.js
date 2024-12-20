@@ -63,6 +63,10 @@ export default class AdminPage {
     return cy.get('input[placeholder="Type for hints..."]');
   }
 
+  static addEmployeeName() {
+    return cy.get('input[placeholder="Type for hints..."]');
+  }
+
   static employeeAutocompleteName() {
     return cy.get(".oxd-autocomplete-dropdown > *").first();
   }
@@ -72,15 +76,15 @@ export default class AdminPage {
   }
 
   static addUsername() {
-    return cy.get(".oxd-input").eq(1);
+    return cy.get(".oxd-input.oxd-input--active").eq(1);
   }
 
   static addPassword() {
-    return cy.get("input[type='password']");
+    return cy.get('.oxd-input.oxd-input--active').eq(2);
   }
 
   static addConfirmPassword() {
-    return cy.get("input[type='password']");
+    return cy.get('.oxd-input.oxd-input--active').eq(3);
   }
 
   static buttonSave() {

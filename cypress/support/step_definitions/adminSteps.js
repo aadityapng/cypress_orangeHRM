@@ -33,7 +33,7 @@ Given("I fetch the employee names", () => {
 
 When("I select an existing employee in add form admin", () => {
   const employeeName = Cypress.env("employeeNames");
-  AdminPage.addEmployeeName().type("employeeName");
+  AdminPage.addEmployeeName().type(employeeName);
   cy.wait(4000); 
   AdminPage.employeeAutocompleteName().click();
   cy.log("Selected Employee Name:----- " + employeeName); 
@@ -80,6 +80,8 @@ When("I click reset button", () => {
 
 When("I click add button", () => {
   AdminPage.buttonAdd().click();
+  cy.url().should("include", "/admin/saveSystemUser"); // Pastikan tetap di halaman Add User
+  cy.wait(2000); // Bisa dihapus jika tidak perlu lagi
 });
 
 // Add User Form Steps
@@ -89,11 +91,6 @@ When("I select user role {string} in add form", (role) => {
 });
 
 When("I select an existing employee in add form", () => {
-  // Ketik 'a' untuk memicu autocomplete dan pilih employee pertama yang muncul
-  // AdminPage.addEmployeeName().type("a");
-  // cy.wait(1000); // tunggu autocomplete muncul
-  // AdminPage.employeeAutocompleteName().click();
-
   const employeeName = Cypress.env("employeeNames");
   AdminPage.addEmployeeName().type(employeeName);
   cy.log("Selected Employee Name: " + employeeName); 
@@ -110,11 +107,11 @@ When("I enter new username {string} in add form", (username) => {
 
 When("I enter password {string} in add form", (password) => {
   cy.log("Password: " + password);
-  AdminPage.addPassword().eq(0).type(password)
+  AdminPage.addPassword().type(password);
 });
 
 When("I confirm password {string} in add form", (password) => {
-  AdminPage.addConfirmPassword().eq(1).type(password);
+  AdminPage.addConfirmPassword().type(password);
 });
 
 When("I click save button", () => {
